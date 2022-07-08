@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">    
+    <ui:composition template="/templates/modeloLogin.xhtml">
+         <ui:define name="metadata">
+            <f:metadata>
+                
+            </f:metadata>
+        </ui:define>
+       <ui:define name="conteudo"> 
+          
+           
+          <style type="text/css">
+              #divCenter,#divCenter1{
+                   background:transparent;
+                   width: 350px;
+                   height: 400px;
+                   left: 50%;
+                   margin: -180px 0 0 -180px;
+                   padding: 10px;
+                   position: absolute;
+                   top: 50%; 
+                   right: 50%;
+                   bottom: 50%;
+                   size: auto;
+               }
+               .backGround{
+                   background-image: url(fudoLogin.jpg);
+               }
+               figure {
+                   background-color: #F2EDED;
+                   border: 1px solid #ccc;
+                   text-align: center;
+               }
+               figcaption {
+                   font-style: italic;
+               }
+           </style> 
+               <script>
+                   $(document).on("ready",function()){
+                       $('#login-page').css({'height': window.innerHeight+'px'});
+                       
+                   });
+               </script>
+           
+           <div id="divCenter" class="backGround">
+                <h4 style="marquee-loop: 10;color: gold"  align="center">Autenticação</h4>  
+        <h:form>
+           
+               
+               <div align="center" style="margin-bottom: 0">
+              <p:graphicImage  value="#{resource['images/logoTipo.jpg']}" style="opacity: 100.0;transform-style: preserve-3d;backface-visibility: visible;background: transparent;border-radius: 25px 25px 25px 25px"  height="120px" width="200px"/>
+               </div>    
+                   
+                
+            
+            <div align="center">
+            <h:panelGrid columns="1"  cellpadding="4" cellspacing="4" >
+                
+                <p:inputText id="txtNomeAut"  placeholder="Usuário" style="border-radius: 25px 25px 25px 25px" size="30" maxlength="50" value="#{autenticacaoBean.funcionarioLogado.funcionarioNome}"
+                                 required="true" requiredMessage="O campo Usuário é Obrigatório."/>
+                
+                
+                <p:password id="txtSenhaAut" placeholder="Palavra-Passe" style="border-radius: 25px 25px 25px 25px" size="30" maxlength="32" value="#{autenticacaoBean.funcionarioLogado.funcionarioSenha}"
+                                 required="true" requiredMessage="O campo Palavra-Passe é Obrigatório."/>
+                
+            </h:panelGrid>
+                </div> 
+                <p:separator>
+                    
+                </p:separator>
+                <p:separator>
+                    
+                </p:separator>
+           
+            <div align="center" >
+                    <h:panelGrid columns="1" cellpadding="4" cellspacing="4" >
+                        <p:commandButton  value="Login" style="border-radius: 25px 25px 25px 25px" action="#{autenticacaoBean.autenticar()}" update=":msgGlobal" />
+                
+            </h:panelGrid>
+            </div>
+            
+          
+               
+            
+        </h:form>
+        
+           </div>
+        
+           
+        </ui:define>
+    </ui:composition>
+</html>
+
